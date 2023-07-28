@@ -1,0 +1,30 @@
+{
+    "name": "车控意图",
+    "intents": [
+        {
+            "name": "打开后备箱",
+            "description": "把后备箱打开",
+            "function": "OpenTrunk()"
+        },
+        {
+            "name": "打开大灯",
+            "description": "开开大灯",
+            "function": "OpenLight()"
+        },
+        {
+            "name": "打开车窗",
+            "description": "把车窗打开",
+            "function": "OpenWindow()"
+        },
+        {
+            "name": "打开空调",
+            "description": "把空调打开",
+            "function": "OpenAC()"
+        },
+        {
+            "name": "调节空调温度",
+            "description": "把空调调到20度",
+            "function": "SetACTemperature(20)"
+        }
+    ]
+}

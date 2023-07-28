@@ -1,0 +1,20 @@
+{
+    "name": "多媒体意图",
+    "intents": [
+        {
+            "name": "听歌手歌曲",
+            "description": "我想听某人的歌",
+            "function": "PlayMusic(\"某人\")"
+        },
+        {
+            "name": "增大音量",
+            "description": "大一点儿声",
+            "function": "VolumeUp()"
+        },
+        {
+            "name": "减小音量",
+            "description": "小一点儿声",
+            "function": "ZoomOut()"
+        }
+    ]
+}

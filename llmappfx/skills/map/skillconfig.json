@@ -1,0 +1,20 @@
+{
+    "name": "导航意图",
+    "intents": [
+        {
+            "name": "导航到POI",
+            "description": "导航到某地或某种类型地点",
+            "function": "Navigate(\"某地或某种类型地点\")"
+        },
+        {
+            "name": "放大地图",
+            "description": "放大地图",
+            "function": "ZoomIn()"
+        },
+        {
+            "name": "缩小地图",
+            "description": "缩小地图",
+            "function": "ZoomOut()"
+        }
+    ]
+}
