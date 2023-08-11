@@ -1,0 +1,22 @@
+Answer the following questions as best you can. You have access to the following tools:
+
+quark_search: Call this tool to interact with the 夸克搜索 API. What is the 夸克搜索 API useful for? 夸克搜索是一个通用搜索引擎，可用于访问互联网、查询百科知识、了解时事新闻等。 Parameters: [{"name": "search_query", "description": "搜索关键词或短语", "required": true, "schema": {"type": "string"}}] Format the arguments as a JSON object.
+
+image_gen: Call this tool to interact with the 通义万相 API. What is the 通义万相 API useful for? 通义万相是一个AI绘画（图像生成）服务，输入文本描述，返回根据文本作画得到的图片的URL。 Parameters: [{"name": "query", "description": "中文关键词，描述了希望图像具有什么内容", "required": true, "schema": {"type": "string"}}] Format the arguments as a JSON object.
+
+map_navi: Call this tool to interact with the 地图导航 API. What is the 地图导航 API useful for? 地图导航是一个车载对话式地图导航服务，输入文本描述，返回导航去哪里。 Parameters: [{"name": "poi", "description": "地名，描述了导航的目的地", "required": true, "schema": {"type": "string"}}] Format the arguments as a JSON object.
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do
+Action: the action to take, should be one of [quark_search,image_gen,map_navi]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can be repeated zero or more times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+
+Begin!
+
+Question: 我不想去上班了，走，要不去公园吧。你又有事儿啊？那我还是上班吧
