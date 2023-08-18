@@ -1,17 +1,17 @@
 Q: 把音量调大点儿
-A: VolumeUp()
+A: {"name": "VolumeUp"}
 
 Q: 快点儿打开后面的后备箱，我要拿东西
-A: OpenTrunk()
+A: {"name": "OpenTrunk"}
 
 Q: 今天天气不错，把视频打开
-A: NoSupport()
+A: {"name": "NoSupport"}
 
 Q: 我不去还是你去吧，听见了嘛
-A: Unknown()
+A: {"name": "Unknown"}
 
-Q: 今天心情不好，陪我聊会儿天？
-A: 好啊，聊聊吧
+Q: 珠穆朗玛峰有多高？
+A: 珠穆朗玛峰目前是8843米
 
 Q: 我想去公园，并且路上播放一首王心凌的歌
-A: Navigate("公园") | PlayMusic("王心凌")
+A: [{"name": "Navigate", parameters: ["公园"]} | {"name": "PlayMusic", parameters: ["王心凌"]}]

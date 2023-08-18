@@ -1,20 +1,690 @@
 {
-    "name": "导航意图",
+    "name": "地图导航意图",
+
     "intents": [
         {
-            "name": "导航到POI",
-            "description": "导航到某地或某种类型地点",
-            "function": "Navigate(\"某地或某种类型地点\")"
+            "name": "开始导航",
+            "description": "开始导航",
+            "samples": [
+                {
+                    "Q": ["导航", "打开导航", "启动导航", "帮我导航", "我要导航"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                        }
+                    },
+                    "fewshot": false
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
         },
+        {
+            "name": "导航到POI",
+            "description": "导航到POI",
+            "samples": [
+                {
+                    "Q": ["导航去人民医院", "我要去人民医院", "导航到人民医院", "我想去人民医院"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "人民医院"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "导航到潜山路和习友路的交叉口",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "潜山路和习友路的交叉口"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "导航到宝庆奶茶店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "宝庆奶茶店"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航回家",
+            "description": "导航回家",
+            "samples": [
+                {
+                    "Q": ["回家", "导航回家", "我要回家", "带我回家"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "$Home$"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到公司",
+            "description": "导航公司",
+            "samples":[
+                {
+                    "Q": ["我要去上班", "带我去公司", "导航去公司"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "$Company$"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到所在地周边POI",
+            "description": "导航到附近的POI",
+            "samples": [
+                {
+                    "Q": "附近的停车场",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "停车场",
+                            "near": "$Here$"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到指定地点周边POI",
+            "description": "导航到某POI附近的POI",
+            "samples": [
+                {
+                    "Q": "找找五道口附近的药店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "药店",
+                            "near": "五道口"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "找一下洛卡小镇附近的商场",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "商场",
+                            "near": "洛卡小镇"
+                        }
+                    },
+                    "fewshot": true
+                },             
+                {
+                    "Q": "导航到阿里中心附近的咖啡店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "咖啡店",
+                            "near": "阿里中心"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "查找西溪园区周边的酒店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "酒店",
+                            "near": "西溪园区"
+                        }
+                    },
+                    "fewshot": true
+                },                 
+                {
+                    "Q": "经开区信创园附近的银行在哪里",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "银行",
+                            "near": "经开区信创园"
+                        }
+                    },
+                    "fewshot": true
+                }   
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到目的地周边POI",
+            "description": "导航到目的地周边的POI",
+            "samples": [
+                {
+                    "Q": "搜索目的地附近的停车场",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "停车场",
+                            "near": "$Target$"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "找一下目的地附近的加油站",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "加油站",
+                            "near": "$Target$"
+                        }
+                    }
+                },
+                {
+                    "Q": "搜索目的地附近的4S店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "4S店",
+                            "near": "$Target$"
+                        }
+                    }
+                }, 
+                {
+                    "Q": "查看目的地附近的美食",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "美食",
+                            "near": "$Target$"
+                        }
+                    }
+                }, 
+                {
+                    "Q": "查一下目的地附近的充电站",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "充电站",
+                            "near": "$Target$"
+                        }
+                    }
+                },
+                {
+                    "Q": "搜一下目的地附近的卫生间",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "卫生间",
+                            "near": "$Target$"
+                        }
+                    }
+                } 
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到条件组合的POI",
+            "description": "导航到某些条件下的POI",
+            "samples": [
+                {
+                    "Q": "附近三公里以内好评高一点的饭馆",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "饭馆",
+                            "condition": "附近三公里以内好评高一点"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "望京周边两公里以内的五星级宾馆",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "宾馆",
+                            "condition": "周边两公里以内的五星级"
+                        }
+                    }
+                },
+                {
+                    "Q": "绿地中心周边两公里以内的快捷酒店",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "酒店",
+                            "condition": "绿地中心周边两公里以内的快捷"
+                        }
+                    }
+                },
+                {
+                    "Q": "附近三公里以内400元以下的3星级宾馆",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "宾馆",
+                            "condition": "附近三公里以内400元以下的3星级"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并包含途径点",
+            "description": "导航到POI途径一个途径点",
+            "samples": [
+                {
+                    "Q": "导航到北京大学中间路过加油站",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "北京大学",
+                            "route": "加油站"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": "导航经过中山公园到世纪大道",
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "世纪大道",
+                            "route": "中山公园"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并躲避拥堵",
+            "description": "导航到POI并躲避拥堵",
+            "samples": [
+                {
+                    "Q": ["怎么去五道口不堵车", "我要导航到五道口走不堵车的路线", "去五道口走一条不堵车的路线"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "AvoidJam"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并不走高速",
+            "description": "导航到POI并不走高速",
+            "samples": [
+                {
+                    "Q": ["怎么去五道口不走高速", "我要导航到五道口不走高速的路线", "去五道口走一条不走高速的路线"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "AvoidHighway"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并高速优先",
+            "description": "导航到POI并高速优先",
+            "samples": [
+                {
+                    "Q": ["多走高速怎么去五道口", "我要导航到五道口尽可能走高速的路线", "去五道口走一条多走高速的路线"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "HighwayFirst"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并避免收费",
+            "description": "导航到某地或某种类型地点并避免收费",
+            "samples": [
+                {
+                    "Q": ["怎么去五道口不收费", "我要导航到五道口不走收费的路线", "去五道口走一条不收费的路线", "去五道口走一条少收费的路线"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "AvoidCharge"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并大路优先",
+            "description": "导航到POI并大路优先",
+            "samples": [
+                {
+                    "Q": ["去五道口走大路", "导航到五道口优先大路", "优先走大路去五道口"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "PreferBigRoad"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并速度最快",
+            "description": "导航到POI并速度最快",
+            "samples": [
+                {
+                    "Q": ["去五道口走速度最快的路", "导航到五道口走速度最快的路线", "怎么去五道口速度最快"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "FastSpeed"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+        {
+            "name": "导航到POI并高德推荐",
+            "description": "导航到POI并高德推荐",
+            "samples": [
+                {
+                    "Q": ["去五道口走高德推荐的路", "导航到五道口走高德推荐的路线", "走高德推荐的路线去五道口"],
+                    "A": {
+                        "name": "NavigateTo",
+                        "parameters": {
+                            "poi": "五道口",
+                            "prefer": "AmapRecommend"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "NavigateTo"
+            }
+        },
+
+        {
+            "name": "添加途经点",
+            "description": "添加一个途经点",
+            "samples": [
+                {
+                    "Q": ["添加一个途经点"],
+                    "A": {
+                        "name": "AddRoute",
+                        "parameters": {
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "AddRoute"
+            }
+        },
+        {
+            "name": "添加POI为途经点",
+            "description": "添加一个POI为途经点",
+            "samples": [
+                {
+                    "Q": ["途经加油站", "沿途加油站", "搜索沿途加油站", "经过加油站", "增加加油站为途径点", "添加加油站为途径点"],
+                    "A": {
+                        "name": "AddRoute",
+                        "parameters": {
+                            "poi": "加油站"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "AddRoute"
+            }
+        },
+        {
+            "name": "删除途径点",
+            "description": "删除一个途径点",
+            "samples": [
+                {
+                    "Q": ["取消途经点", "删除途经点"],
+                    "A": {
+                        "name": "DelRoute",
+                        "parameters": {
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "DelRoute"
+            }
+        },
+        {
+            "name": "删除POI途径点",
+            "description": "删除某POI的途经点",
+            "samples": [
+                {
+                    "Q": ["删除第一个途经点"],
+                    "A": {
+                        "name": "DelRoute",
+                        "parameters": {
+                            "poi": "1"
+                        }
+                    },
+                    "fewshot": true
+                },
+                {
+                    "Q": ["不要经过加油站了", "不想经过加油站了", "不用经过加油站了", "别经过加油站了"],
+                    "A": {
+                        "name": "DelRoute",
+                        "parameters": {
+                            "poi": "加油站"
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "DelRoute"
+            }
+        },
+
         {
             "name": "放大地图",
             "description": "放大地图",
-            "function": "ZoomIn()"
+            "samples":[
+                {
+                    "Q": ["地图大一点", "放大地图", "把地图搞大点"],
+                    "A": {
+                        "name": "ZoomIn",
+                        "parameters": {
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "ZoomIn"
+            }
         },
         {
             "name": "缩小地图",
             "description": "缩小地图",
-            "function": "ZoomOut()"
+            "samples":[
+                {
+                    "Q": ["地图小一点", "缩小地图", "把地图搞小点"],
+                    "A": {
+                        "name": "ZoomOut",
+                        "parameters": {
+                        }
+                    },
+                    "fewshot": true
+                }
+            ],
+            "function": {
+                "name": "ZoomOut"
+            }
         }
+    ],
+
+    "functions": [
+        {
+            "name": "NavigateTo",
+            "description": "导航到某个地方",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "poi": {
+                        "type": "string",
+                        "description": "某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型值",
+                        "required": true
+                    },
+                    "prefer": {
+                        "type": "string",
+                        "enum": ["AvoidJam", "AvoidHighway", "HighwayFirst", "AvoidCharge", "PreferBigRoad", "FastSpeed", "AmapRecommend"],
+                        "description": "路径偏好，共7个类型：躲避拥堵、不走高速、高速优先、避免收费、大路优先、速度最快、高德推荐，对应于enum中的7个值",
+                        "required": false
+                    },
+                    "route": {
+                        "type": "string",
+                        "description": "途径点，可以是某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型值",
+                        "required": false
+                    },
+                    "near": {
+                        "type": "string",
+                        "description": "周边附近（\"$Near$\"）、目的地（\"$Target$\")或指定某个地方或某种类型的地点",
+                        "required": false
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "对POI设置的一些条件信息，包括：距离、评分、价格等等",
+                        "required": false
+                    }
+                }
+            }
+        },
+
+        {
+            "name": "AddRoute",
+            "description": "添加途径点",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "poi": {
+                        "type": "string",
+                        "description": "某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型词"
+                    }
+                },
+                "required": ["poi"]
+            }
+        },
+
+        {
+            "name": "DelRoute",
+            "description": "删除途径点",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "poi": {
+                        "type": "string",
+                        "description": "某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型词"
+                    }
+                },
+                "required": ["poi"]
+            }
+        },
+
+        {
+            "name": "ZoomIn",
+            "description": "放大地图",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                },
+                "required": []
+            }
+        },
+
+        {
+            "name": "ZoomOut",
+            "description": "缩小地图",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                },
+                "required": []
+            }
+        }
+
     ]
 }

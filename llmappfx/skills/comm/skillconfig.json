@@ -1,0 +1,15 @@
+{
+    "name": "通讯意图",
+    "intents": [
+        {
+            "name": "打电话",
+            "description": "打个电话给某人",
+            "function": "PhoneCall(\"某人\")"
+        },
+        {
+            "name": "发消息",
+            "description": "发个微信给某人, 告诉他今天不回家吃饭了",
+            "function": "SendWeChat(\"某人\", \"今天不回家吃饭了\")"
+        }
+    ]
+}

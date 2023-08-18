@@ -1,0 +1,15 @@
+{
+    "name": "百科闲聊意图",
+    "intents": [
+        {
+            "name": "百科",
+            "description": "黄河有多长？",
+            "function": "WikiSearch(\"黄河长度\")"
+        },
+        {
+            "name": "闲聊",
+            "description": "今天心情不好，陪我聊聊天？",
+            "function": "好啊，有什么不开心的事儿吗？"
+        }        
+    ]
+}
