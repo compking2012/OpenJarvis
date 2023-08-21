@@ -13,7 +13,7 @@ def read_json_file(file_path):
     return data
 
 def process_skill(skill_dir):
-    instruction_parentpath = os.path.join(skill_dir, '../instruction.txt')
+    instruction_parentpath = os.path.join(skill_dir, '../task_instruction.txt')
     instruction_path = os.path.join(skill_dir, 'instruction.txt')
     if os.path.isfile(instruction_path):
         instruction_data = read_text_file(instruction_path)

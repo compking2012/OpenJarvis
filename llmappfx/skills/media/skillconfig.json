@@ -18,5 +18,42 @@
             "function": "ZoomOut()"
         }
     ],
-    "functions": []
+    "functions": [
+        {
+            "name": "NavigateTo",
+            "description": "导航到某个地方",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "poi": {
+                        "type": "string",
+                        "description": "某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型值",
+                        "required": true
+                    },
+                    "prefer": {
+                        "type": "string",
+                        "enum": ["AvoidJam", "AvoidHighway", "HighwayFirst", "AvoidCharge", "PreferBigRoad", "FastSpeed", "AmapRecommend"],
+                        "description": "路径偏好，共7个类型：躲避拥堵、不走高速、高速优先、避免收费、大路优先、速度最快、高德推荐，对应于enum中的7个值",
+                        "required": false
+                    },
+                    "route": {
+                        "type": "string",
+                        "description": "途径点，可以是某个地方或某种类型的地点，或者是家（\"$Home$\"）和公司（\"$Company$\"）两个特殊类型值",
+                        "required": false
+                    },
+                    "near": {
+                        "type": "string",
+                        "description": "周边附近（\"$Near$\"）、目的地（\"$Target$\")或指定某个地方或某种类型的地点",
+                        "required": false
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "对POI设置的一些条件信息，包括：距离、评分、价格等等",
+                        "required": false
+                    }
+                }
+            }
+        }
+
+    ]
 }
