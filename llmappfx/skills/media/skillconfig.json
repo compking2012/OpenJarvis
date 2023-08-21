@@ -1,5 +1,6 @@
 {
     "name": "多媒体意图",
+    "description": "和音乐、有声读物、收音机、视频、音频操控等相关的话术",
     "intents": [
         {
             "name": "听歌手歌曲",
@@ -16,5 +17,6 @@
             "description": "小一点儿声",
             "function": "ZoomOut()"
         }
-    ]
+    ],
+    "functions": []
 }

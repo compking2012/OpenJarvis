@@ -1,5 +1,6 @@
 {
-    "name": "车控意图",
+    "name": "车控车设意图",
+    "description": "和车辆上的各种设备操控和设置等相关的话术，比如车灯、车窗、雨刷器等的控制",
     "intents": [
         {
             "name": "打开后备箱",
@@ -26,5 +27,6 @@
             "description": "把空调调到20度",
             "function": "SetACTemperature(20)"
         }
-    ]
+    ],
+    "functions": []
 }

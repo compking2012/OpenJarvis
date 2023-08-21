@@ -13,6 +13,13 @@ def read_json_file(file_path):
     return data
 
 def process_skill(skill_dir):
+    instruction_parentpath = os.path.join(skill_dir, '../instruction.txt')
+    instruction_path = os.path.join(skill_dir, 'instruction.txt')
+    if os.path.isfile(instruction_path):
+        instruction_data = read_text_file(instruction_path)
+    else: 
+        instruction_data = read_text_file(instruction_parentpath)
+
     skillconfig_path = os.path.join(skill_dir, 'skillconfig.json')
     skillconfig_data = read_json_file(skillconfig_path)
 
@@ -41,12 +48,15 @@ def process_skill(skill_dir):
         # output += f'  {intent_description}: {intent_samples}\n'
 
     output += f'\n\nFunctions: {functions}\n'
-    return output
+
+    # Replace {Skills} with skills_output
+    instruction_data = instruction_data.replace("{SkillName}", skill_name)
+    instruction_data = instruction_data.replace("{Skills}", output)
+
+    return instruction_data
 
 def get_prompt():
     skills_directory = 'skills'
-    instruction_path = os.path.join(skills_directory, 'instruction.txt')
-    instruction_data = read_text_file(instruction_path)
 
     # Process each skill directory
     skills_output = ""
@@ -57,15 +67,7 @@ def get_prompt():
         if os.path.isdir(skill_dir):
             skills_output += process_skill(skill_dir)
 
-    # Replace {Skills} with skills_output
-    instruction_data = instruction_data.replace("{Skills}", skills_output)
-
-    # Read fewshots.json and replace {FewShots} with its content
-    # fewshots_path = os.path.join(skills_directory, 'fewshots.txt')
-    # fewshots_data = read_text_file(fewshots_path)
-    # instruction_data = instruction_data.replace("{FewShots}", json.dumps(fewshots_data, indent=2, ensure_ascii=False))
-
-    return instruction_data
+    return skills_output
 
 def main():
     print(get_prompt())

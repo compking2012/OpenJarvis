@@ -1,5 +1,6 @@
 {
     "name": "百科闲聊意图",
+    "description": "",
     "intents": [
         {
             "name": "百科",
@@ -11,5 +12,6 @@
             "description": "今天心情不好，陪我聊聊天？",
             "function": "好啊，有什么不开心的事儿吗？"
         }        
-    ]
+    ],
+    "functions": []
 }
