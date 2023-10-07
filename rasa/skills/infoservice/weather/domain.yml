@@ -27,7 +27,6 @@ slots:
 actions:
   - utter_ask_location
   - utter_ask_datetime
-  - utter_ask_continue
   - action_weather_form_submit
 
 forms:

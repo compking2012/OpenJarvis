@@ -58,7 +58,7 @@ policies:
   - max_history: 6
     name: AugmentedMemoizationPolicy
   - name: TEDPolicy
-    max_history: 10
+    max_history: 5
     epochs: 100
     constrain_similarities: True
   - name: RulePolicy
@@ -112,19 +112,19 @@ imports:
 - skills/adas/ar
 # Life Service domain
 - skills/lifeservice/attraction
-- skills/lifeservice/express
+- skills/lifeservice/express #done
 - skills/lifeservice/hotel
 - skills/lifeservice/restaurant
 - skills/lifeservice/shopping
 - skills/lifeservice/takeout
 - skills/lifeservice/ticket
 # Info Service domain
-- skills/infoservice/weather
+- skills/infoservice/weather #done
 - skills/infoservice/stock
 - skills/infoservice/flight
-- skills/infoservice/news
+- skills/infoservice/news #done
 - skills/infoservice/almanac
-- skills/infoservice/exchange
+- skills/infoservice/exchange #done
 - skills/infoservice/wiki
 # Tooling domain
 - skills/tooling/caculator
