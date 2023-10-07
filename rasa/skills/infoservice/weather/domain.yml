@@ -1,0 +1,38 @@
+version: "3.1"
+
+intents:
+  - weather
+  - info_datetime
+  - info_location
+  - thank_you
+
+entities:
+  - location
+  - datetime
+
+slots:
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - entity: location
+        type: from_entity
+  datetime:
+    type: text
+    influence_conversation: false
+    mappings:
+      - entity: datetime
+        type: from_entity
+
+actions:
+  - utter_ask_location
+  - utter_ask_datetime
+  - utter_ask_continue
+  - action_weather_form_submit
+
+forms:
+  weather_form:
+    ignored_intents: []
+    required_slots:
+      - location
+      - datetime

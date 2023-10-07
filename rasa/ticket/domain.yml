@@ -1,0 +1,49 @@
+version: "3.1"
+
+intents:
+  - train_ticket
+  - info_departure
+  - info_destination
+
+entities:
+  - address:
+      roles:
+        - departure
+        - destination
+  - date
+        
+slots:
+  departure:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: address
+        role: departure
+      # - type: from_entity
+      #   entity: address
+        intent: info_departure
+  destination:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: address
+        role: destination
+      # - type: from_entity
+      #   entity: address
+        intent: info_destination
+  date:
+    type: text
+    influence_conversation: false
+    mappings:
+      - entity: date
+        type: from_entity
+
+actions:
+  - action_query_train
+
+forms:
+  train_query_form:
+    required_slots:
+      - departure
+      - destination
+      - date

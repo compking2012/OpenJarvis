@@ -1,0 +1,160 @@
+version: "3.1"
+stories:
+  - story: weather form
+    steps:
+      - or:
+          - intent: weather
+          - intent: weather
+            entities:
+              - location: 上海
+          - intent: weather
+            entities:
+              - datetime: 明天
+          - intent: weather
+            entities:
+              - datetime: 明天
+              - location: 上海
+      - action: weather_form
+      - active_loop: weather_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null
+
+  - story: weather interactive_story_1
+    steps:
+      - intent: weather
+        entities:
+          - datetime: 今天
+          - location: 武汉
+      - slot_was_set:
+          - location: 武汉
+      - slot_was_set:
+          - datetime: 今天
+      - action: weather_form
+      - active_loop: weather_form
+      - slot_was_set:
+          - location: 武汉
+      - slot_was_set:
+          - datetime: 今天
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_weather_form_submit
+      - intent: info_location
+        entities:
+          - location: 广州
+      - slot_was_set:
+          - location: 广州
+      - action: weather_form
+      - active_loop: weather_form
+      - slot_was_set:
+          - location: 广州
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_weather_form_submit
+      - intent: info_location
+        entities:
+          - location: 上海
+      - slot_was_set:
+          - location: 上海
+      - action: weather_form
+      - active_loop: weather_form
+      - slot_was_set:
+          - location: 上海
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_weather_form_submit
+      - intent: info_datetime
+        entities:
+          - datetime: 明天
+      - slot_was_set:
+          - datetime: 明天
+      - action: action_weather_form_submit
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - story: weather interactive_story_2
+    steps:
+      - intent: weather
+        entities:
+          - location: 上海
+          - datetime: 明天
+      - slot_was_set:
+          - location: 上海
+      - slot_was_set:
+          - datetime: 明天
+      - action: weather_form
+      - active_loop: weather_form
+      - slot_was_set:
+          - location: 上海
+      - slot_was_set:
+          - datetime: 明天
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_weather_form_submit
+      - intent: info_datetime
+        entities:
+          - datetime: 后天
+      - slot_was_set:
+          - datetime: 后天
+      - action: action_weather_form_submit
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - story: weather interactive_story_3
+    steps:
+      - intent: weather
+        entities:
+          - location: 武汉
+      - slot_was_set:
+          - location: 武汉
+      - action: weather_form
+      - active_loop: weather_form
+      - slot_was_set:
+          - location: 武汉
+      - slot_was_set:
+          - requested_slot: datetime
+      - intent: info_datetime
+        entities:
+          - datetime: 明天
+      - slot_was_set:
+          - datetime: 明天
+      - action: weather_form
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_weather_form_submit
+
+#   - story: weather interactive_story_4
+#     steps:
+#       - intent: train_ticket
+#         entities:
+#           - location: 上海
+#           - location: 北京
+#       - slot_was_set:
+#           - departure: 上海
+#       - slot_was_set:
+#           - destination: 北京
+#       - action: train_query_form
+#       - active_loop: train_query_form
+#       - slot_was_set:
+#           - departure: 上海
+#       - slot_was_set:
+#           - destination: 北京
+#       - slot_was_set:
+#           - requested_slot: datetime
+#       - intent: info_datetime
+#         entities:
+#           - datetime: 明天
+#       - slot_was_set:
+#           - datetime: 明天
+#       - action: train_query_form
+#       - slot_was_set:
+#           - requested_slot: null
+#       - active_loop: null
+#       - action: action_query_train

@@ -1,0 +1,6 @@
+.DS_Store
+
+/rasa/.cache
+/rasa/.rasa/cache
+/rasa/log
+/rasa/models

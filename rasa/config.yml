@@ -1,0 +1,157 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# The assistant project unique identifier
+# This default value must be replaced with a unique assistant name within your deployment
+assistant_id: voiceassistant
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: zh
+log_level: DEBUG
+
+
+pipeline:
+  # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+  # # If you'd like to customize it, uncomment and adjust the pipeline.
+  # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+  # - name: JiebaTokenizer
+  #   dictionary_path: "pipeline/jieba_userdict"
+  - name: components.jieba_tokenizer.JiebaTokenizer
+    dictionary_path: "pipeline/jieba_userdict"
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-chinese"
+  - name: RegexFeaturizer
+  - name: components.custom_number_extractor.CustomNumberExtractor
+  - name: components.custom_time_extractor.CustomTimeExtractor
+  # - name: source.diet_classifier.DIETClassifier
+  - name: DIETClassifier
+    epochs: 500
+    learning_rate: 0.001
+    tensorboard_log_directory: ./log
+    tensorboard_log_level: EPOCH
+    constrain_similarities: True
+  - name: FallbackClassifier
+    threshold: 0.7
+  - name: ResponseSelector
+    retrieval_intent: faq
+    epochs: 100
+    learning_rate: 0.001
+    constrain_similarities: True
+    scale_loss: false
+  - name: ResponseSelector
+    retrieval_intent: chitchat
+    epochs: 100
+    learning_rate: 0.001
+    constrain_similarities: True
+    scale_loss: false
+  - name: EntitySynonymMapper
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+  # # No configuration for policies was provided. The following default policies were used to train your model.
+  # # If you'd like to customize them, uncomment and adjust the policies.
+  # # See https://rasa.com/docs/rasa/policies for more information.
+  - max_history: 6
+    name: AugmentedMemoizationPolicy
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 100
+    constrain_similarities: True
+  - name: RulePolicy
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True
+
+
+importers:
+- name: MultiProjectImporter
+imports:
+# Map Navigation domain
+- skills/mapnavigation/map
+- skills/mapnavigation/navigation
+- skills/mapnavigation/traffic
+- skills/mapnavigation/surrounding
+- skills/mapnavigation/limitation
+- skills/mapnavigation/violation
+# Multimedia domain
+- skills/multimedia/music
+- skills/multimedia/radio
+- skills/multimedia/abook
+- skills/multimedia/video
+- skills/multimedia/videostreaming
+- skills/multimedia/shortvideo
+# Car Control domain
+- skills/carcontrol/aircondition
+- skills/carcontrol/ambientlight
+- skills/carcontrol/carlight
+- skills/carcontrol/camera360
+- skills/carcontrol/door
+- skills/carcontrol/dvr
+- skills/carcontrol/hud
+- skills/carcontrol/convertible
+- skills/carcontrol/mirror
+- skills/carcontrol/seat
+- skills/carcontrol/steering
+- skills/carcontrol/directionwheel
+- skills/carcontrol/window
+- skills/carcontrol/wiper
+# System HMI domain
+- skills/systemhmi/appcontrol
+- skills/systemhmi/scenemode
+- skills/systemhmi/systemsetting
+- skills/systemhmi/theme
+- skills/systemhmi/vgui
+# ADAS domain
+- skills/adas/apa
+- skills/adas/acc
+- skills/adas/noa
+- skills/adas/ar
+# Life Service domain
+- skills/lifeservice/attraction
+- skills/lifeservice/express
+- skills/lifeservice/hotel
+- skills/lifeservice/restaurant
+- skills/lifeservice/shopping
+- skills/lifeservice/takeout
+- skills/lifeservice/ticket
+# Info Service domain
+- skills/infoservice/weather
+- skills/infoservice/stock
+- skills/infoservice/flight
+- skills/infoservice/news
+- skills/infoservice/almanac
+- skills/infoservice/exchange
+- skills/infoservice/wiki
+# Tooling domain
+- skills/tooling/caculator
+- skills/tooling/conversion
+- skills/tooling/manual
+- skills/tooling/memo
+- skills/tooling/time
+- skills/tooling/translation
+# Work Social domain
+- skills/worksocial/calendar
+- skills/worksocial/contact
+- skills/worksocial/message
+- skills/worksocial/notification
+- skills/worksocial/phonecall
+- skills/worksocial/team
+- skills/worksocial/wechat
+# Home IOT domain
+- skills/homeiot
+# Children domain
+- skills/children
+# Game domain
+- skills/game
+# Mobile domain
+- skills/mobile
+# Photo domain
+- skills/photo
+# Health domain
+- skills/health
+# Travel domain
+- skills/travel
