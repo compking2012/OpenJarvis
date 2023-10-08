@@ -94,23 +94,23 @@ nlu:
       - [今天](datetime)天气几度
       - [两天后](datetime)的天气会不会很冷
       - [明天](datetime)的天气是不是很暖
-  - synonym: 下个星期一
-    examples: |
-      - 下星期一
-  - synonym: 今天
-    examples: |
-      - 早上
-      - 中午
-      - 晚上
-      - 下午
-      - 傍晚
-      - 今日
-  - synonym: 明天
-    examples: |
-      - 明日
-  - synonym: 北京
-    examples: |
-      - 首都
-  - synonym: 上海
-    examples: |
-      - 魔都
+  # - synonym: 下个星期一
+  #   examples: |
+  #     - 下星期一
+  # - synonym: 今天
+  #   examples: |
+  #     - 早上
+  #     - 中午
+  #     - 晚上
+  #     - 下午
+  #     - 傍晚
+  #     - 今日
+  # - synonym: 明天
+  #   examples: |
+  #     - 明日
+  # - synonym: 北京
+  #   examples: |
+  #     - 首都
+  # - synonym: 上海
+  #   examples: |
+  #     - 魔都

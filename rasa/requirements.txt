@@ -1,0 +1,3 @@
+jieba
+transformers
+python-dotenv

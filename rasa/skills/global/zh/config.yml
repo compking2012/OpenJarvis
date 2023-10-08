@@ -16,10 +16,9 @@ pipeline:
   # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
   # # If you'd like to customize it, uncomment and adjust the pipeline.
   # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-  # - name: JiebaTokenizer
+  - name: JiebaTokenizer
+  # - name: components.jieba_tokenizer.JiebaTokenizer
   #   dictionary_path: "pipeline/jieba_userdict"
-  - name: components.jieba_tokenizer.JiebaTokenizer
-    dictionary_path: "pipeline/jieba_userdict"
   - name: LanguageModelFeaturizer
     model_name: "bert"
     model_weights: "bert-base-chinese"

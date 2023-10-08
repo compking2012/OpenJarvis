@@ -4,7 +4,6 @@ intents:
   - weather
   - info_datetime
   - info_location
-  - thank_you
 
 entities:
   - location

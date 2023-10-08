@@ -5,23 +5,20 @@ nlu:
     examples: |
       - 你好
       - 你好啊
-      - 早上好
-      - 晚上好
       - hello
       - hi
       - 嗨
       - 嗨喽
       - 见到你很高兴
       - 嘿
-      - 早
-      - 上午好
-      - hello哈喽
+      - 哈喽
       - 哈喽哈喽
-      - hello hello
-      - 喂喂
+      - 哈喽啊
+      - 喂
       - 在不
       - 在不在
-      - 早上好，你好吗?
+      - 在吗
+      - 你好吗
   - intent: goodbye
     examples: |
       - goodbye
