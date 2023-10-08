@@ -1,18 +1,6 @@
 version: "3.1"
 rules:
-  - rule: activate weather form
+  - rule: query weather
     steps:
       - intent: weather
-      - action: weather_form
-      - active_loop: weather_form
-  - rule: Submit weather form
-    condition:
-      # Condition that form is active.
-      - active_loop: weather_form
-    steps:
-      - action: weather_form
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
-      # The action we want to run when the form is submitted.
-      - action: action_weather_form_submit
+      - action: action_query_weather
