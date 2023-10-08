@@ -1,0 +1,9 @@
+version: "3.1"
+
+stories:
+- story: A basic story test
+  steps:
+  - user: |
+      今天天气怎么样？
+    intent: weather
+  - action: action_query_weather

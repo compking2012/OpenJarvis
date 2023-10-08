@@ -2,8 +2,6 @@ version: "3.1"
 
 intents:
   - weather
-  - info_datetime
-  - info_location
 
 entities:
   - location
@@ -24,13 +22,5 @@ slots:
         type: from_entity
 
 actions:
-  - utter_ask_location
-  - utter_ask_datetime
-  - action_weather_form_submit
+  - action_query_weather
 
-forms:
-  weather_form:
-    ignored_intents: []
-    required_slots:
-      - location
-      - datetime

@@ -1,0 +1,22 @@
+version: "3.1"
+
+stories:
+- story: A test story with a form
+  steps:
+  - user: |
+      我的包裹到哪儿了？
+    intent: search_express
+  - action: action_search_express_form
+  - active_loop: action_search_express_form
+  - action: utter_ask_express
+  - user: |
+      顺丰的
+    intent: inform
+  - action: action_search_express_form
+  - action: utter_ask_number
+  - user: |
+      1234
+    intent: inform
+  - action: action_search_express_form
+  - active_loop: null
+  - action: utter_search_stop_number

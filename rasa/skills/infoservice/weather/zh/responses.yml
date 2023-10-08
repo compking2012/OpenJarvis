@@ -1,7 +1,7 @@
 version: "3.1"
 
 responses:
-  utter_ask_location:
-    - text: 想查询哪里的天气呢？
-  utter_ask_datetime:
-    - text: 想查询什么时候的呢？
+  utter_weather_info:
+    - text: "{location} {datetime} ({calendartime}) 的天气情况为：白天：{text_day}；夜晚：{text_night}；气温：{high}-{low} 度"
+  utter_no_weather_info:
+    - text: 暂不支持查询 {location} {datetime} 的天气

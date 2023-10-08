@@ -5,3 +5,4 @@ __pycache__
 /rasa/.rasa/cache
 /rasa/log
 /rasa/models
+/rasa/results
