@@ -31,7 +31,7 @@ pipeline:
   # - name: components.custom_time_extractor.CustomTimeExtractor
   # - name: source.diet_classifier.DIETClassifier
   - name: DIETClassifier
-    epochs: 300
+    epochs: 50
     # learning_rate: 0.001
     # tensorboard_log_directory: ./log
     # tensorboard_log_level: EPOCH

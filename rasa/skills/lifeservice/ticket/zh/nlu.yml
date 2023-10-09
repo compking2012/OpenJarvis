@@ -2,6 +2,14 @@ version: "3.1"
 nlu:
   - intent: train_ticket
     examples: |
+      - 我要查火车票
+      - [今天下午](date)去[北京]{"entity": "address", "role": "destination"}的火车票有吗
+      - 到[北京]{"entity": "address", "role": "destination"}的高铁票有吗
+      - [今天下午](date)去[北京]{"entity": "address", "role": "destination"}的高铁二等座票有吗
+      - 有没有[明天](date)从[上海虹桥火车站]{"entity": "address", "role": "departure"}出发的火车
+      - [北京]{"entity": "address", "role": "departure"}到[上海]{"entity": "address", "role": "destination"}一等座多少钱
+      - 那[明天晚上](date)从[北京]{"entity": "address", "role": "departure"}到[上海]{"entity": "address", "role": "destination"}的软卧呢
+      - [明天晚上](date)从[北京]{"entity": "address", "role": "departure"}到[上海]{"entity": "address", "role": "destination"}的软卧
       - 查寻[上海]{"entity": "address", "role": "departure"}到[北京]{"entity": "address", "role": "destination"}的火车票
       - 帮我查一下[明天](date)去[郑州]{"entity": "address", "role": "destination"}的火车票
       - 查询[广州]{"entity": "address", "role": "departure"}到[北京]{"entity": "address", "role": "destination"}的火车
@@ -74,3 +82,12 @@ nlu:
       - 帮我查查[三天前](date)
       - 帮我查查[下星期五](date)的
       - 还要[明天](date)的
+  #     最早的一班
+  #     最早到达的是哪个
+  #     用时最短的
+  #     最便宜的
+  #     去北京的
+
+  # - intent: info_traintype
+  #   examples: |
+  #     只看二等座看看高铁

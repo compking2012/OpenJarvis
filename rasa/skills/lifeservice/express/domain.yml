@@ -16,6 +16,9 @@ slots:
     mappings:
     - type: from_entity
       entity: express
+      # conditions:
+      #   - active_loop: search_express_form
+      #   - requested_slot: express
       intent: info_express
   number:
     type: text
@@ -23,6 +26,9 @@ slots:
     mappings:
     - type: from_entity
       entity: number
+      # conditions:
+      #   - active_loop: search_express_form
+      #   - requested_slot: number
       intent: info_number
 
 actions:

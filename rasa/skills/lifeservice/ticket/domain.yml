@@ -2,9 +2,11 @@ version: "3.1"
 
 intents:
   - train_ticket
+  - air_ticket
   - info_departure
   - info_destination
   - info_date
+  # - info_traintype
 
 entities:
   - address:

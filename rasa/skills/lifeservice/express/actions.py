@@ -7,8 +7,11 @@
 
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Tracker
+from rasa_sdk import Action
+from rasa_sdk.types import DomainDict
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import EventType, SlotSet
 import time
 import json
 import requests
@@ -34,9 +37,9 @@ class ActionSubmitSearchExpressForm(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        express = tracker.slots.get("express")
-        number = tracker.slots.get("number")
+            domain: DomainDict) -> List[EventType]:
+        express = tracker.get_slot("express")
+        number = tracker.get_slot("number")
         
         print(express, number)
 
