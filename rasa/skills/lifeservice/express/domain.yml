@@ -2,6 +2,8 @@ version: "3.1"
 
 intents:
   - search_express
+  - info_express
+  - info_number
 
 entities:
   - express
@@ -10,24 +12,24 @@ entities:
 slots:
   express:
     type: text
-    initial_value: null
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: express
+      intent: info_express
   number:
     type: text
-    initial_value: null
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: number
+      intent: info_number
 
 actions:
-  - action_search_express
+  - action_submit_search_express_form
 
 forms:
-  action_search_express_form:
+  search_express_form:
     required_slots:
       - express
       - number

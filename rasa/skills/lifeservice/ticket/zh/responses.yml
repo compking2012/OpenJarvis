@@ -5,3 +5,5 @@ responses:
     - text: "你想从哪里出发？"
   utter_ask_destination:
     - text: "你要去哪里？"
+  utter_ask_date:
+    - text: "你准备什么时候走？"

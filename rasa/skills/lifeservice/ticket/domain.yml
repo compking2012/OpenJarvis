@@ -4,6 +4,7 @@ intents:
   - train_ticket
   - info_departure
   - info_destination
+  - info_date
 
 entities:
   - address:
@@ -14,32 +15,28 @@ entities:
         
 slots:
   departure:
-    type: any
+    type: text
     mappings:
       - type: from_entity
         entity: address
         role: departure
-      # - type: from_entity
-      #   entity: address
         intent: info_departure
   destination:
-    type: any
+    type: text
     mappings:
       - type: from_entity
         entity: address
         role: destination
-      # - type: from_entity
-      #   entity: address
         intent: info_destination
   date:
     type: text
-    influence_conversation: false
     mappings:
-      - entity: date
-        type: from_entity
+      - type: from_entity
+        entity: date
+        intent: info_date
 
 actions:
-  - action_query_train
+  - action_submit_query_train_form
 
 forms:
   train_query_form:

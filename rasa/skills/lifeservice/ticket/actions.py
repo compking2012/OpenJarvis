@@ -14,10 +14,11 @@ import json
 import requests
 from typing import Any, Dict, List, Text, Optional
 import datetime
+import os
 
-with open('station_map.json', 'r', encoding='utf-8') as json_file:
+station_map_file = os.path.join( os.path.dirname(__file__), 'station_map.json')
+with open(station_map_file, 'r', encoding='utf-8') as json_file:
     station_map = json.load(json_file)
-
 
 def text_to_date(text_date: str) -> Optional[datetime.date]:
     today = datetime.datetime.now()
@@ -32,10 +33,10 @@ def text_to_date(text_date: str) -> Optional[datetime.date]:
         return (today + one_more_day * 3).date()
 
 
-class ActionQueryTrain(Action):
+class ActionSubmitQueryTrainForm(Action):
 
     def name(self) -> Text:
-        return "action_query_train"
+        return "action_submit_query_train_form"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,

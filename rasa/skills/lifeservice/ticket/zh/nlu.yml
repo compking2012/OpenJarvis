@@ -26,48 +26,51 @@ nlu:
       - 去[南昌]{"entity": "address", "role": "destination"}的火车
       - [杭州]{"entity": "address", "role": "departure"}到[北京]{"entity": "address", "role": "destination"}的火车班次
       - [明天](date)[广州]{"entity": "address", "role": "departure"}到[长葛]{"entity": "address", "role": "destination"}的火车
+  
   - intent: info_departure
     examples: |
-      - 告诉我[广州]{"entity": "address", "role": "departure"}怎么样
+      - 从[广州]{"entity": "address", "role": "departure"}出发
       - [广州]{"entity": "address", "role": "departure"}
-      - 那么[辽宁]{"entity": "address", "role": "departure"}呢
-      - [北京]{"entity": "address", "role": "departure"}啥情况
-      - [厦门]{"entity": "address", "role": "departure"}怎么样
-      - [武汉]{"entity": "address", "role": "departure"}呢
-      - [香港]{"entity": "address", "role": "departure"}呢
+      - 我从[辽宁]{"entity": "address", "role": "departure"}走
+      - 从[北京]{"entity": "address", "role": "departure"}
+      - [厦门]{"entity": "address", "role": "departure"}
+      - [武汉]{"entity": "address", "role": "departure"}吧
+      - [香港]{"entity": "address", "role": "departure"}吧
       - 我在[杭州]{"entity": "address", "role": "departure"}
       - [上海]{"entity": "address", "role": "departure"}
-      - 在[宁波]{"entity": "address", "role": "departure"}呢
+      - 在[宁波]{"entity": "address", "role": "departure"}
       - [宁波]{"entity": "address", "role": "departure"}
-      - [首都]{"entity": "address", "role": "departure"}
+      - [北京]{"entity": "address", "role": "departure"}
+  
   - intent: info_destination
     examples: |
-      - 告诉我[广州]{"entity": "address", "role": "destination"}怎么样
-      - [广州]{"entity": "address", "role": "destination"}
-      - 那么[辽宁]{"entity": "address", "role": "destination"}呢
-      - [北京]{"entity": "address", "role": "destination"}啥情况
-      - [厦门]{"entity": "address", "role": "destination"}怎么样
-      - [武汉]{"entity": "address", "role": "destination"}呢
-      - [香港]{"entity": "address", "role": "destination"}呢
+      - 开往[广州]{"entity": "address", "role": "destination"}的
+      - 到[广州]{"entity": "address", "role": "destination"}的
+      - 去[辽宁]{"entity": "address", "role": "destination"}的
+      - 开往[北京]{"entity": "address", "role": "destination"}的
+      - 到[厦门]{"entity": "address", "role": "destination"}吧
+      - [武汉]{"entity": "address", "role": "destination"}吧
+      - [香港]{"entity": "address", "role": "destination"}吧
       - 我去[杭州]{"entity": "address", "role": "destination"}
       - [上海]{"entity": "address", "role": "destination"}
-      - 去[宁波]{"entity": "address", "role": "destination"}呢
+      - 去[宁波]{"entity": "address", "role": "destination"}吧
       - [宁波]{"entity": "address", "role": "destination"}
-      - [首都]{"entity": "address", "role": "destination"}
+      - [北京]{"entity": "address", "role": "destination"}
+  
   - intent: info_date
     examples: |
-      - [明天](datetime)
-      - [后天](datetime)
-      - [下个星期日](datetime)怎么样
-      - 还需要[昨天](datetime)的
-      - 我还要[昨天](datetime)的
-      - [明天](datetime)如何
-      - [后天](datetime)如何
-      - [星期六](datetime)呢
-      - [后天](datetime)的呢
-      - [明天](datetime)的怎么说
-      - [两天后](datetime)的大概什么样
-      - [前天](datetime)的
-      - 帮我查查[三天前](datetime)
-      - 帮我查查[下星期五](datetime)的
-      - 还要[明天](datetime)的
+      - [明天](date)
+      - [后天](date)
+      - [下个星期日](date)怎么样
+      - 还需要[昨天](date)的
+      - 我还要[昨天](date)的
+      - [明天](date)如何
+      - [后天](date)如何
+      - [星期六](date)呢
+      - [后天](date)的呢
+      - [明天](date)的怎么说
+      - [两天后](date)的大概什么样
+      - [前天](date)的
+      - 帮我查查[三天前](date)
+      - 帮我查查[下星期五](date)的
+      - 还要[明天](date)的

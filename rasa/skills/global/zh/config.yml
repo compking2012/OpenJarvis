@@ -20,6 +20,8 @@ pipeline:
   #  dictionary_path: "pipeline/jieba_userdict"
   # - name: components.jieba_tokenizer.JiebaTokenizer
   #   dictionary_path: "pipeline/jieba_userdict"
+  - name: RegexEntityExtractor
+    case_sensitive: false
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: LanguageModelFeaturizer
@@ -33,7 +35,7 @@ pipeline:
     # learning_rate: 0.001
     # tensorboard_log_directory: ./log
     # tensorboard_log_level: EPOCH
-    constrain_similarities: True
+    constrain_similarities: true
     # BILOU_flag: True
   - name: EntitySynonymMapper
   - name: ResponseSelector

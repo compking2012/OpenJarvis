@@ -27,16 +27,19 @@ def get_url(code, id):
     return url
 
 
-class ActionSearchExpress(Action):
+class ActionSubmitSearchExpressForm(Action):
 
     def name(self) -> Text:
-        return "action_search_express"
+        return "action_submit_search_express_form"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         express = tracker.slots.get("express")
         number = tracker.slots.get("number")
+        
+        print(express, number)
+
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
             "Referer": "http://www.kuaidi.com/cominterface2345.html"

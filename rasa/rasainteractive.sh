@@ -1,0 +1,1 @@
+rasa interactive --config skills/global/zh/config.yml --domain skills --data skills
